@@ -674,7 +674,7 @@ html:not(.js) .t-coach,.t-coach.in{transition:transform .5s,box-shadow .5s}
 
 /* ===== Hero con video: al hacer scroll el video reemplaza al hero y avanza con el scroll ===== */
 #inicio.has-vid{height:calc(100svh + 260vh)!important}
-.hero-vid{position:absolute;inset:0;z-index:20;background:#790D0B;opacity:0;pointer-events:none;will-change:opacity}
+.hero-vid{position:absolute;inset:0;z-index:20;background:url(media/hero-video-poster.jpg) 50% 40%/cover no-repeat,url(Media/hero-video-poster.jpg) 50% 40%/cover no-repeat,#790D0B;opacity:0;pointer-events:none;will-change:opacity} /* respaldo: si el video no carga se ve la imagen fija */
 .hero-vid video{width:100%;height:100%;object-fit:cover;object-position:50% 40%;display:block;transform:scale(calc(1.06 - var(--vf,0)*.06))}
 #inicio.has-vid .hero-sticky>*:not(.hero-vid){transition:none}
 @media(max-width:680px){
@@ -1113,7 +1113,7 @@ html:not(.js) .t-coach,.t-coach.in{transition:transform .5s,box-shadow .5s}
 <main id="contenido">
 <section class="hero has-vid" id="inicio" data-scroll-hero>
  <div class="hero-sticky">
-  <div class="hero-vid" aria-hidden="true"><video id="heroVideo" muted playsinline preload="auto" poster="media/hero-video-poster.jpg"><source src="media/hero-video.mp4" type="video/mp4"><source src="media/hero-video.webm" type="video/webm"></video></div>
+  <div class="hero-vid" aria-hidden="true"><video id="heroVideo" muted playsinline preload="auto" poster="media/hero-video-poster.jpg"><source src="media/hero-video.mp4" type="video/mp4"><source src="media/hero-video.webm" type="video/webm"><source src="Media/hero-video.mp4" type="video/mp4"><source src="Media/hero-video.webm" type="video/webm"></video></div>
   <div class="hero-bg" aria-hidden="true">
     <span>Maranatha Maranatha Maranatha Maranatha</span><span>Maranatha Maranatha Maranatha Maranatha</span><span>Maranatha Maranatha Maranatha Maranatha</span><span>Maranatha Maranatha Maranatha Maranatha</span>
     <span>Maranatha Maranatha Maranatha Maranatha</span><span>Maranatha Maranatha Maranatha Maranatha</span><span>Maranatha Maranatha Maranatha Maranatha</span><span>Maranatha Maranatha Maranatha Maranatha</span>
@@ -1910,7 +1910,7 @@ fitG();window.addEventListener('resize',fitG);if(document.fonts&&document.fonts.
   if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){return;}
   var layer=v.parentNode,st=hero.querySelector('.hero-sticky'),player=document.getElementById('heroPlayer');
   var dur=0,target=0,ticking=false,seeking=false;
-  var MAX_SEG=7; /* el scroll solo recorre los primeros 7 segundos del video */
+  var MAX_SEG=3; /* el scroll solo recorre los primeros 3 segundos del video */
   function meta(){dur=Math.min(v.duration||0,MAX_SEG);update();}
   v.addEventListener('loadedmetadata',meta);v.addEventListener('durationchange',meta);
   if(v.readyState>=1){dur=Math.min(v.duration||0,MAX_SEG);}
